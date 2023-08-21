@@ -1,0 +1,84 @@
+
+<Banner>:
+	size_hint_y: None
+	height: dp(30)
+    canvas:
+        Rectangle:
+            source: 'images/banner.png'
+            pos: self.pos
+            size: self.size
+            
+    BoxLayout:        
+        Button: 
+            size_hint_x: None
+			width: dp(30)
+            background_color: 0.988, 0.663, 0.259, 0
+			text: ''
+            on_release: root.back()
+			
+        Label:
+            text: root.title
+    
+        Button: 
+            size_hint_x: 0.75
+            background_color: 0.988, 0.663, 0.259, 0
+            text: root.buttontext 
+            on_release: root.showprofile()
+			id: 'button'
+		
+<LoginScreen>:
+    canvas:
+        Rectangle:
+            source: 'images/appopen.png'
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+
+        Label:
+            text: ''
+            size_hint_y: 0.75833
+            
+        GridLayout:
+            cols: 2
+			size_hint_y: 0.24167
+            Label:
+                id: lblUserName
+                text: 'Username'
+            
+            TextInput:
+                id: tbUsername
+                text: ''
+				background_color: 1, 1, 1, .8
+				multiline: False
+				on_text_validate: root.ids.tbPassword.focus = True
+         
+            Label:
+                id: lblPassword
+                text: 'Password'
+                
+            TextInput:
+                id: tbPassword
+                password: True
+                text: ''
+				background_color: 1, 1, 1, .8
+				multiline: False
+				on_text_validate: root.userlogin()
+                
+			Button:
+				background_normal: 'images/16038.png'
+				id: btnCreateAccount
+				text: 'Create Account'
+				on_release: root.createaccount()
+				size_hint_y: None
+				height: dp(38)
+				
+			Button: 
+				background_normal: 'images/16038.png'
+				id: btnEnter
+				text: 'Login'    
+				on_release: root.userlogin()
+				size_hint_y: None
+				height: dp(38)
+            

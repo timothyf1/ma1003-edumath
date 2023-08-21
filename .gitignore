@@ -1,0 +1,8 @@
+*~
+*.db
+*.pyc
+app/version.txt
+.buildozer/
+buildozer.spec
+bin/
+venv
